@@ -11,12 +11,12 @@ int main(){
 
     vector<vector<int> > graph(n, vector<int> (n, 0));
 
-    //Генерация рандомного графа в виде списка ребер
+    //Generate a random graph as a list of edges
     for(int i = 0; i<n; i++)
         for(int j = i+1; j<n; j++)
                 g.push_back({rand() % W, {i, j}});
 
-    //Алгоритм Краскала
+    //Kraskal Algorithm
     int cost = 0;
     vector < pair<int,int> > res;
 
@@ -38,10 +38,10 @@ int main(){
     	}
     }
 
-    //Вывод количества ребер в минимальном остове
+    //Display the number of ribs in the minimum skeleton
     cout << res.size() << "\n\n";
 
-    //Вывод всех ребер
+    //Р’С‹РІРѕРґ РІСЃРµС… СЂРµР±РµСЂ
     /*
     for (int i = 0; i<res.size(); i++)
         cout << i << ' ' << res[i].first << ' ' << res[i].second << '\n';
