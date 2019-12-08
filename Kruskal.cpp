@@ -3,18 +3,20 @@
 using namespace std;
 
 int main(){
-    int m = 100, n = 1000, W = 10000;
+    clock_t start = clock();
+
+    int m = 100, n = 3500, W = 100000;
 
     vector<pair<int, pair<int,int> > > g;
 
     vector<vector<int> > graph(n, vector<int> (n, 0));
 
-    //Generate a random graph as a list of edges
+    //Генерация рандомного графа в виде списка ребер
     for(int i = 0; i<n; i++)
         for(int j = i+1; j<n; j++)
                 g.push_back({rand() % W, {i, j}});
 
-    //Kraskal Algorithm
+    //Алгоритм Краскала
     int cost = 0;
     vector < pair<int,int> > res;
 
@@ -36,14 +38,18 @@ int main(){
     	}
     }
 
-    //Display the number of ribs in the minimum skeleton
+    //Вывод количества ребер в минимальном остове
     cout << res.size() << "\n\n";
 
-    //Р’С‹РІРѕРґ РІСЃРµС… СЂРµР±РµСЂ
-
+    //Вывод всех ребер
+    /*
     for (int i = 0; i<res.size(); i++)
         cout << i << ' ' << res[i].first << ' ' << res[i].second << '\n';
+    */
 
+    clock_t end = clock();
+    double seconds = (double)(end - start) / CLOCKS_PER_SEC;
+    cout << seconds << '\n';
 
     cin >> n;
 }
